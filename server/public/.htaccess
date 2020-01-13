@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^users controler_users.php [QSA,L]
+    RewriteRule ^products controler_produit.php [QSA,L]
+
+    RewriteRule ^$ index.php [QSA,L]
+    RewriteRule ^hello index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
