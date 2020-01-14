@@ -1,21 +1,19 @@
 import React from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
-import { ProductsTable } from "./components/ProductsTable";
-import { useProducts } from "./core/useProducts";
-import { removeProduct } from "./core/removeProduct";
 import { EditModal } from "./components/EditModal";
+import { ProductsTable } from "./components/ProductsTable";
+import { removeProduct } from "./core/removeProduct";
+import { useProducts } from "./core/useProducts";
 
 function App() {
   const [edit, setEdit] = React.useState(null);
-
   const { products, reload } = useProducts();
 
   function handleRemoveProduct(id) {
     removeProduct(id, reload);
   }
 
-  function handleEditProduct(product) {
-    console.log("TCL: handleEditProduct -> product", product);
+  function handleSetEditingProduct(product) {
     setEdit(product);
   }
 
@@ -30,7 +28,7 @@ function App() {
 
       <ProductsTable
         onRemove={handleRemoveProduct}
-        onEdit={handleEditProduct}
+        onEdit={handleSetEditingProduct}
         products={products}
       />
 
