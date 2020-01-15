@@ -24,3 +24,10 @@ export const DATA_STRUCTURE = [
 ];
 
 export const EDITABLE_FIELDS = ["libelle", "prix_unitaire", "reference"];
+
+export const CREATE_FIELDS = [
+  "libelle",
+  "prix_unitaire",
+  "reference",
+  "id_fournisseur"
+];
