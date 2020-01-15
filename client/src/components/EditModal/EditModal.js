@@ -10,7 +10,7 @@ export function EditModal({ product: initialValues, onClose, onSubmit }) {
   const [product, setPropduct] = React.useState(initialValues);
 
   return (
-    <Modal show>
+    <Modal show onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>Edit {initialValues.libelle}</Modal.Title>
       </Modal.Header>
@@ -41,7 +41,7 @@ export function EditModal({ product: initialValues, onClose, onSubmit }) {
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={onSubmit}>
+        <Button variant="primary" onClick={() => onSubmit(product)}>
           Save changes
         </Button>
       </Modal.Footer>
