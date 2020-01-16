@@ -12,6 +12,10 @@ function toJson($resultat, $httpCode=200) {
     return $app->json($retour, $httpCode);
 }
 
+$app->register(new JDesrosiers\Silex\Provider\CorsServiceProvider(), [
+    "cors.allowOrigin" => "*",
+]);
+
 $app->get('/products', function ()
 {
     $resultat = DaoProduct::findAllProduct();
@@ -50,6 +54,8 @@ $app->delete('/products/{id}', function ($id)
     $resultat = DaoProduct::deleteProduct($id);
     return toJson($resultat);
 });
+
+$app["options"]($app);
 
 $app->run();
 
