@@ -5,8 +5,5 @@ export function removeProduct(id, callback) {
 
   request.open("DELETE", `${API_URL}/products/${id}`, false);
   request.send();
-
-  request.onreadystatechange = () => {
-    request.readyState === 4 && callback();
-  };
+  callback();
 }

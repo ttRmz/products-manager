@@ -24,14 +24,20 @@ function App() {
 
   function handleAddProduct(product) {
     const variables = formatVariables(product);
-    addProduct(variables, reload);
+    addProduct(variables, () => {
+      reload();
+      handleCloseModal();
+    });
   }
 
   function handleUpdateProduct(product) {
     const { id_produit } = product;
 
     const variables = formatVariables(product);
-    updateProduct({ id_produit, ...variables }, reload);
+    updateProduct({ id_produit, ...variables }, () => {
+      reload();
+      handleCloseModal();
+    });
   }
 
   function handleCloseModal() {
