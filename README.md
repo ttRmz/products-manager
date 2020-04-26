@@ -9,7 +9,7 @@
 ## Get started
 
 ```sh
-git clone https://github.com/ttRmz/Products_Manager_REACT_PHP.git
+git clone git@github.com:ttRmz/products-manager.git
 ```
 
 ## Authors
